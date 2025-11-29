@@ -20,16 +20,25 @@ LeetCode/
 │   └── main/
 │       ├── Main.java          # 主入口文件
 │       ├── leetcode1.java     # LeetCode 1 - 两数之和
+│       ├── leetcode49.java    # LeetCode 49 - 字母异位词分组
 │       └── leetcode283.java   # LeetCode 283 - 移动零
 ├── out/                       # 编译输出目录
 └── README.md                  # 项目说明文档
 ```
+
+## 📊 刷题统计
+
+- **总题数**: 3 题
+- **简单**: 2 题
+- **中等**: 1 题
+- **困难**: 0 题
 
 ## 📚 已完成的题目
 
 | 题号 | 题目名称 | 难度 | 算法标签 | 时间复杂度 | 空间复杂度 | 文件 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [1](https://leetcode.cn/problems/two-sum/) | 两数之和 | 简单 | 数组、哈希表 | O(n) | O(n) | [leetcode1.java](src/main/leetcode1.java) |
+| [49](https://leetcode.cn/problems/group-anagrams/) | 字母异位词分组 | 中等 | 数组、哈希表、字符串、排序 | O(nk log k) | O(nk) | [leetcode49.java](src/main/leetcode49.java) |
 | [283](https://leetcode.cn/problems/move-zeroes/) | 移动零 | 简单 | 数组、双指针 | O(n) | O(1) | [leetcode283.java](src/main/leetcode283.java) |
 
 ### 题目详情
@@ -39,6 +48,13 @@ LeetCode/
 - **解题思路**: 使用哈希表存储已遍历的元素及其索引，在遍历过程中查找是否存在 `target - nums[i]`。
 - **关键点**: 一次遍历即可完成，时间复杂度优化到 O(n)。
 
+#### [49. 字母异位词分组](src/main/leetcode49.java)
+- **问题描述**: 给你一个字符串数组，请你将字母异位词组合在一起。可以按任意顺序返回结果列表。
+- **解题思路**: 
+  - **方法一（排序法）**: 将每个字符串排序后作为哈希表的键，相同键的字符串归为一组。时间复杂度 O(nk log k)，其中 n 是字符串数量，k 是字符串最大长度。
+  - **方法二（计数法）**: 统计每个字符串中每个字符的出现次数，将计数结果作为键。时间复杂度 O(nk)，空间复杂度更优。
+- **关键点**: 如何设计哈希表的键是关键，两种方法各有优劣。
+
 #### [283. 移动零](src/main/leetcode283.java)
 - **问题描述**: 给定一个数组 `nums`，编写一个函数将所有 `0` 移动到数组的末尾，同时保持非零元素的相对顺序。
 - **解题思路**: 使用双指针技巧，`left` 指针指向下一个非零元素应该放置的位置，`right` 指针遍历数组。
@@ -46,7 +62,7 @@ LeetCode/
 
 ## 🚀 如何运行
 
-### 方式一：使用 IntelliJ IDEA
+### 方式一：使用 IntelliJ IDEA（推荐）
 
 1. 打开项目
 2. 找到要运行的 Java 文件（如 `leetcode1.java`）
@@ -66,6 +82,7 @@ java -cp out/production/LeetCode main.leetcode1
 ## 📝 刷题计划
 
 - [x] 两数之和 (LeetCode 1)
+- [x] 字母异位词分组 (LeetCode 49)
 - [x] 移动零 (LeetCode 283)
 - [ ] 更多题目持续更新中...
 
@@ -76,6 +93,15 @@ java -cp out/production/LeetCode main.leetcode1
 - 时间复杂度与空间复杂度分析
 - 边界条件处理
 - 代码优化技巧
+- 多种解法的对比与选择
+
+## 🔍 算法标签统计
+
+- **哈希表**: 2 题（1, 49）
+- **数组**: 3 题（1, 49, 283）
+- **双指针**: 1 题（283）
+- **字符串**: 1 题（49）
+- **排序**: 1 题（49）
 
 ## 🤝 贡献
 
