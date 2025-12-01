@@ -21,6 +21,7 @@ LeetCode/
 │       ├── Main.java          # 主入口文件
 │       ├── leetcode1.java     # LeetCode 1 - 两数之和
 │       ├── leetcode49.java    # LeetCode 49 - 字母异位词分组
+│       ├── leetcode128.java   # LeetCode 128 - 最长连续序列
 │       └── leetcode283.java   # LeetCode 283 - 移动零
 ├── out/                       # 编译输出目录
 └── README.md                  # 项目说明文档
@@ -28,9 +29,9 @@ LeetCode/
 
 ## 📊 刷题统计
 
-- **总题数**: 3 题
+- **总题数**: 4 题
 - **简单**: 2 题
-- **中等**: 1 题
+- **中等**: 2 题
 - **困难**: 0 题
 
 ## 📚 已完成的题目
@@ -39,6 +40,7 @@ LeetCode/
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [1](https://leetcode.cn/problems/two-sum/) | 两数之和 | 简单 | 数组、哈希表 | O(n) | O(n) | [leetcode1.java](src/main/leetcode1.java) |
 | [49](https://leetcode.cn/problems/group-anagrams/) | 字母异位词分组 | 中等 | 数组、哈希表、字符串、排序 | O(nk log k) | O(nk) | [leetcode49.java](src/main/leetcode49.java) |
+| [128](https://leetcode.cn/problems/longest-consecutive-sequence/) | 最长连续序列 | 中等 | 数组、哈希表、并查集 | O(n) | O(n) | [leetcode128.java](src/main/leetcode128.java) |
 | [283](https://leetcode.cn/problems/move-zeroes/) | 移动零 | 简单 | 数组、双指针 | O(n) | O(1) | [leetcode283.java](src/main/leetcode283.java) |
 
 ### 题目详情
@@ -54,6 +56,14 @@ LeetCode/
   - **方法一（排序法）**: 将每个字符串排序后作为哈希表的键，相同键的字符串归为一组。时间复杂度 O(nk log k)，其中 n 是字符串数量，k 是字符串最大长度。
   - **方法二（计数法）**: 统计每个字符串中每个字符的出现次数，将计数结果作为键。时间复杂度 O(nk)，空间复杂度更优。
 - **关键点**: 如何设计哈希表的键是关键，两种方法各有优劣。
+
+#### [128. 最长连续序列](src/main/leetcode128.java)
+- **问题描述**: 给定一个未排序的整数数组 `nums`，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。要求时间复杂度为 O(n)。
+- **解题思路**: 使用哈希集合存储所有数字，然后遍历集合，对于每个数字，如果它是某个连续序列的起点（即不存在 `num-1`），则从该数字开始向后查找连续序列的长度。
+- **关键点**: 
+  - 使用哈希集合实现 O(1) 的查找
+  - 只从序列的起点开始查找，避免重复计算
+  - 虽然有两层循环，但每个数字最多被访问两次，总体时间复杂度为 O(n)
 
 #### [283. 移动零](src/main/leetcode283.java)
 - **问题描述**: 给定一个数组 `nums`，编写一个函数将所有 `0` 移动到数组的末尾，同时保持非零元素的相对顺序。
@@ -83,6 +93,7 @@ java -cp out/production/LeetCode main.leetcode1
 
 - [x] 两数之和 (LeetCode 1)
 - [x] 字母异位词分组 (LeetCode 49)
+- [x] 最长连续序列 (LeetCode 128)
 - [x] 移动零 (LeetCode 283)
 - [ ] 更多题目持续更新中...
 
@@ -97,11 +108,12 @@ java -cp out/production/LeetCode main.leetcode1
 
 ## 🔍 算法标签统计
 
-- **哈希表**: 2 题（1, 49）
-- **数组**: 3 题（1, 49, 283）
+- **哈希表**: 3 题（1, 49, 128）
+- **数组**: 4 题（1, 49, 128, 283）
 - **双指针**: 1 题（283）
 - **字符串**: 1 题（49）
 - **排序**: 1 题（49）
+- **并查集**: 1 题（128）
 
 ## 🤝 贡献
 
