@@ -21,6 +21,7 @@ LeetCode/
 │       ├── Main.java          # 主入口文件
 │       ├── leetcode1.java     # LeetCode 1 - 两数之和
 │       ├── leetcode11.java     # LeetCode 11 - 盛最多水的容器
+│       ├── leetcode15.java    # LeetCode 15 - 三数之和
 │       ├── leetcode49.java    # LeetCode 49 - 字母异位词分组
 │       ├── leetcode128.java   # LeetCode 128 - 最长连续序列
 │       └── leetcode283.java   # LeetCode 283 - 移动零
@@ -30,9 +31,9 @@ LeetCode/
 
 ## 📊 刷题统计
 
-- **总题数**: 5 题
+- **总题数**: 6 题
 - **简单**: 2 题
-- **中等**: 3 题
+- **中等**: 4 题
 - **困难**: 0 题
 
 ## 📚 已完成的题目
@@ -41,6 +42,7 @@ LeetCode/
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [1](https://leetcode.cn/problems/two-sum/) | 两数之和 | 简单 | 数组、哈希表 | O(n) | O(n) | [leetcode1.java](src/main/leetcode1.java) |
 | [11](https://leetcode.cn/problems/container-with-most-water/) | 盛最多水的容器 | 中等 | 数组、双指针、贪心 | O(n) | O(1) | [leetcode11.java](src/main/leetcode11.java) |
+| [15](https://leetcode.cn/problems/3sum/) | 三数之和 | 中等 | 数组、双指针、排序 | O(n²) | O(1) | [leetcode15.java](src/main/leetcode15.java) |
 | [49](https://leetcode.cn/problems/group-anagrams/) | 字母异位词分组 | 中等 | 数组、哈希表、字符串、排序 | O(nk log k) | O(nk) | [leetcode49.java](src/main/leetcode49.java) |
 | [128](https://leetcode.cn/problems/longest-consecutive-sequence/) | 最长连续序列 | 中等 | 数组、哈希表、并查集 | O(n) | O(n) | [leetcode128.java](src/main/leetcode128.java) |
 | [283](https://leetcode.cn/problems/move-zeroes/) | 移动零 | 简单 | 数组、双指针 | O(n) | O(1) | [leetcode283.java](src/main/leetcode283.java) |
@@ -60,6 +62,19 @@ LeetCode/
   - 每次移动高度较小的指针
   - 贪心策略：总是保留较高的边，移动较短的边
   - 时间复杂度 O(n)，空间复杂度 O(1)
+
+#### [15. 三数之和](src/main/leetcode15.java)
+- **问题描述**: 给你一个整数数组 `nums`，判断是否存在三元组 `[nums[i], nums[j], nums[k]]` 满足 `i != j`、`i != k` 且 `j != k`，同时还满足 `nums[i] + nums[j] + nums[k] == 0`。请你返回所有和为 0 且不重复的三元组。
+- **解题思路**: 
+  1. 首先对数组进行排序
+  2. 固定第一个数 `a`，将问题转化为在剩余数组中找两数之和等于 `-a`
+  3. 使用双指针在排序后的数组中查找，左指针从 `a` 的下一位开始，右指针从数组末尾开始
+  4. 跳过重复元素以避免重复的三元组
+- **关键点**: 
+  - 排序是去重的基础
+  - 双指针技巧将时间复杂度从 O(n³) 优化到 O(n²)
+  - 需要仔细处理重复元素的情况
+  - 时间复杂度 O(n²)，空间复杂度 O(1)（不考虑返回结果的空间）
 
 #### [49. 字母异位词分组](src/main/leetcode49.java)
 - **问题描述**: 给你一个字符串数组，请你将字母异位词组合在一起。可以按任意顺序返回结果列表。
@@ -104,6 +119,7 @@ java -cp out/production/LeetCode main.leetcode1
 
 - [x] 两数之和 (LeetCode 1)
 - [x] 盛最多水的容器 (LeetCode 11)
+- [x] 三数之和 (LeetCode 15)
 - [x] 字母异位词分组 (LeetCode 49)
 - [x] 最长连续序列 (LeetCode 128)
 - [x] 移动零 (LeetCode 283)
@@ -121,10 +137,10 @@ java -cp out/production/LeetCode main.leetcode1
 ## 🔍 算法标签统计
 
 - **哈希表**: 3 题（1, 49, 128）
-- **数组**: 5 题（1, 11, 49, 128, 283）
-- **双指针**: 2 题（11, 283）
+- **数组**: 6 题（1, 11, 15, 49, 128, 283）
+- **双指针**: 3 题（11, 15, 283）
 - **字符串**: 1 题（49）
-- **排序**: 1 题（49）
+- **排序**: 2 题（15, 49）
 - **并查集**: 1 题（128）
 - **贪心**: 1 题（11）
 
