@@ -20,6 +20,7 @@ LeetCode/
 │   └── main/
 │       ├── Main.java          # 主入口文件
 │       ├── leetcode1.java     # LeetCode 1 - 两数之和
+│       ├── leetcode11.java     # LeetCode 11 - 盛最多水的容器
 │       ├── leetcode49.java    # LeetCode 49 - 字母异位词分组
 │       ├── leetcode128.java   # LeetCode 128 - 最长连续序列
 │       └── leetcode283.java   # LeetCode 283 - 移动零
@@ -29,9 +30,9 @@ LeetCode/
 
 ## 📊 刷题统计
 
-- **总题数**: 4 题
+- **总题数**: 5 题
 - **简单**: 2 题
-- **中等**: 2 题
+- **中等**: 3 题
 - **困难**: 0 题
 
 ## 📚 已完成的题目
@@ -39,6 +40,7 @@ LeetCode/
 | 题号 | 题目名称 | 难度 | 算法标签 | 时间复杂度 | 空间复杂度 | 文件 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [1](https://leetcode.cn/problems/two-sum/) | 两数之和 | 简单 | 数组、哈希表 | O(n) | O(n) | [leetcode1.java](src/main/leetcode1.java) |
+| [11](https://leetcode.cn/problems/container-with-most-water/) | 盛最多水的容器 | 中等 | 数组、双指针、贪心 | O(n) | O(1) | [leetcode11.java](src/main/leetcode11.java) |
 | [49](https://leetcode.cn/problems/group-anagrams/) | 字母异位词分组 | 中等 | 数组、哈希表、字符串、排序 | O(nk log k) | O(nk) | [leetcode49.java](src/main/leetcode49.java) |
 | [128](https://leetcode.cn/problems/longest-consecutive-sequence/) | 最长连续序列 | 中等 | 数组、哈希表、并查集 | O(n) | O(n) | [leetcode128.java](src/main/leetcode128.java) |
 | [283](https://leetcode.cn/problems/move-zeroes/) | 移动零 | 简单 | 数组、双指针 | O(n) | O(1) | [leetcode283.java](src/main/leetcode283.java) |
@@ -49,6 +51,15 @@ LeetCode/
 - **问题描述**: 给定一个整数数组 `nums` 和一个整数目标值 `target`，请你在该数组中找出和为目标值 `target` 的那两个整数，并返回它们的数组下标。
 - **解题思路**: 使用哈希表存储已遍历的元素及其索引，在遍历过程中查找是否存在 `target - nums[i]`。
 - **关键点**: 一次遍历即可完成，时间复杂度优化到 O(n)。
+
+#### [11. 盛最多水的容器](src/main/leetcode11.java)
+- **问题描述**: 给定一个长度为 n 的整数数组 `height`。有 n 条垂线，第 i 条线的两个端点是 (i, 0) 和 (i, height[i])。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+- **解题思路**: 使用双指针技巧，从数组两端开始，每次移动高度较小的指针。因为容器的面积由较短的边决定，移动较短的边才有可能获得更大的面积。
+- **关键点**: 
+  - 双指针从两端向中间移动
+  - 每次移动高度较小的指针
+  - 贪心策略：总是保留较高的边，移动较短的边
+  - 时间复杂度 O(n)，空间复杂度 O(1)
 
 #### [49. 字母异位词分组](src/main/leetcode49.java)
 - **问题描述**: 给你一个字符串数组，请你将字母异位词组合在一起。可以按任意顺序返回结果列表。
@@ -92,6 +103,7 @@ java -cp out/production/LeetCode main.leetcode1
 ## 📝 刷题计划
 
 - [x] 两数之和 (LeetCode 1)
+- [x] 盛最多水的容器 (LeetCode 11)
 - [x] 字母异位词分组 (LeetCode 49)
 - [x] 最长连续序列 (LeetCode 128)
 - [x] 移动零 (LeetCode 283)
@@ -109,11 +121,12 @@ java -cp out/production/LeetCode main.leetcode1
 ## 🔍 算法标签统计
 
 - **哈希表**: 3 题（1, 49, 128）
-- **数组**: 4 题（1, 49, 128, 283）
-- **双指针**: 1 题（283）
+- **数组**: 5 题（1, 11, 49, 128, 283）
+- **双指针**: 2 题（11, 283）
 - **字符串**: 1 题（49）
 - **排序**: 1 题（49）
 - **并查集**: 1 题（128）
+- **贪心**: 1 题（11）
 
 ## 🤝 贡献
 
